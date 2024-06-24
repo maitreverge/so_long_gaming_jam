@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creamap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: iarrar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:06:24 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 07:48:54 by flverge          ###   ########.fr       */
+/*   Updated: 2023/08/31 19:06:27 by iarrar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 #define BUFFER_SIZE 5000
 
-/**
- * @brief Search char `c` in buffer `str`
- * 
- * @param str 
- * @param c 
- * @return int 
- */
 int	ft_searchar(char *str, char c)
 {
 	int	i;
@@ -35,14 +28,6 @@ int	ft_searchar(char *str, char c)
 	return (-1);
 }
 
-/**
- * @brief Search the char `c` given in parametter and return an instance
- * of position `posx` and `posy`
- * 
- * @param map 
- * @param c 
- * @return t_player 
- */
 t_player	ft_searstruct(char **map, char c)
 {
 	t_player	cacahuete;
@@ -73,12 +58,6 @@ void	ft_freetabtab(char **map)
 
 int	handle_input(int keysym, t_data *data)
 {
-	/*
-	#define XK_Left                          0xff51   Move left, left arrow 
-	#define XK_Up                            0xff52   Move up, up arrow 
-	#define XK_Right                         0xff53   Move right, right arrow 
-	#define XK_Down                          0xff54   Move down, down arrow
-	*/
 	if (keysym == XK_a)
 		move_left(data);
 	else if (keysym == XK_s)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solong.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: iarrar <iarrar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:49:30 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 07:50:29 by flverge          ###   ########.fr       */
+/*   Updated: 2023/08/28 14:42:02 by iarrar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_data
 	t_player	cookie;
 	char		*str;
 	char		**map;
-	int			count; // count of moves
+	int			count;
 	int			dimension;
 	int			map_height;
 	int			map_width;

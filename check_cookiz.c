@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_cookiz.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: iarrar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 17:57:16 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 07:44:16 by flverge          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:14:28 by iarrar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-// Detects on the map if there is a collectible left
 int	ft_cookiz(char **map)
 {
 	int	i;
