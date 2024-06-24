@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2023/09/14 12:31:41 by iarrar           ###   ########.fr       */
+/*   Updated: 2024/06/24 07:45:20 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 void	ft_choose_img(char c, t_data *data, int x, int y)
 {
-	if (c == 'P')
+	if (c == 'P') // displays the player
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == '1')
+	else if (c == '1') // displays wall
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->wall.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == '0')
+	else if (c == '0') // displays empty space
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->font.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == 'C')
+	else if (c == 'C') // displays sheep
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->cookie.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == 'E')
+	else if (c == 'E') // displays exit
 	{
+		// If there is no collectible 'C' collectible left
 		if (ft_cookiz(data->map) != 0)
 			mlx_put_image_to_window(data->mlx_ptr,
 				data->win_ptr, data->exit_close.sprite.mlx_img,
@@ -50,8 +51,7 @@ int	check_elements(char **map)
 	{
 		while (map[j][i])
 		{
-			if (map[j][i] != '1' && map[j][i] != '0' && map[j][i] != 'E'
-				&& map[j][i] != 'C' && map[j][i] != 'P')
+			if (map[j][i] != '1' && map[j][i] != '0' && map[j][i] != 'E' && map[j][i] != 'C' && map[j][i] != 'P')
 			{
 				ft_putstr_fd("Element non compatible sur la carte\n", 2);
 				return (504);
