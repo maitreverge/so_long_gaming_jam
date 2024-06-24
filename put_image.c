@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 16:59:15 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/24 17:12:55 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ void	ft_choose_img(char c, t_data *data, int x, int y)
 	mask_x = data->player.posx - x;
 	mask_y = data->player.posy - y;
 
-	sensitivity = (rand() % 180 - data->count)  + 1; 
+	// modify this data for steps sensitivity
+	int nb_steps = 80;
+	
+	sensitivity = (rand() % nb_steps - data->count)  + 1;
+	if (sensitivity < 3)
+		sensitivity = 1;
 
 	if (c == 'P')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	if ((mask_x >= sensitivity * -1 && mask_x <= sensitivity) && (mask_y >= sensitivity * -1 && mask_y <= sensitivity)) // mask condition
+	else if ((mask_x >= sensitivity * -1 && mask_x <= sensitivity) && (mask_y >= sensitivity * -1 && mask_y <= sensitivity)) // mask condition
 	{
 		if (c == '1')
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
