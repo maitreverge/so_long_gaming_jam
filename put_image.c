@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 16:51:58 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/24 16:59:15 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ void	ft_choose_img(char c, t_data *data, int x, int y)
 	mask_x = data->player.posx - x;
 	mask_y = data->player.posy - y;
 
-	sensitivity = rand() % 6 + 1;
+	sensitivity = (rand() % 180 - data->count)  + 1; 
 
+	if (c == 'P')
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
 	if ((mask_x >= sensitivity * -1 && mask_x <= sensitivity) && (mask_y >= sensitivity * -1 && mask_y <= sensitivity)) // mask condition
 	{
-		if (c == 'P')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-				data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-		else if (c == '1')
+		if (c == '1')
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 				data->wall.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
 		else if (c == '0')
@@ -50,7 +49,6 @@ void	ft_choose_img(char c, t_data *data, int x, int y)
 	else // no mask
 	{
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->black.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-		
 	}
 }
 
