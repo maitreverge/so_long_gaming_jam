@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2023/09/14 12:31:41 by iarrar           ###   ########.fr       */
+/*   Updated: 2024/06/24 16:35:15 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,40 @@
 
 void	ft_choose_img(char c, t_data *data, int x, int y)
 {
-	if (c == 'P')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == '1')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->wall.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == '0')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->font.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == 'C')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->cookie.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if (c == 'E')
+	int mask_x, mask_y;
+
+	mask_x = data->player.posx - x;
+	mask_y = data->player.posy - y;
+	if ((mask_x >= -1 && mask_x <= 1) && (mask_y >= -1 && mask_y <= 1)) // mask condition
 	{
-		if (ft_cookiz(data->map) != 0)
-			mlx_put_image_to_window(data->mlx_ptr,
-				data->win_ptr, data->exit_close.sprite.mlx_img,
-				ft_crdn(x, data), ft_crdn(y, data));
-		else
-			mlx_put_image_to_window(data->mlx_ptr,
-				data->win_ptr, data->exit_open.sprite.mlx_img, ft_crdn(x, data),
-				ft_crdn(y, data));
+		if (c == 'P')
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+				data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		else if (c == '1')
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+				data->wall.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		else if (c == '0')
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+				data->font.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		else if (c == 'C')
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+				data->cookie.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		else if (c == 'E')
+		{
+			if (ft_cookiz(data->map) != 0)
+				mlx_put_image_to_window(data->mlx_ptr,
+					data->win_ptr, data->exit_close.sprite.mlx_img,
+					ft_crdn(x, data), ft_crdn(y, data));
+			else
+				mlx_put_image_to_window(data->mlx_ptr,
+					data->win_ptr, data->exit_open.sprite.mlx_img, ft_crdn(x, data),
+					ft_crdn(y, data));
+		}
+	}
+	else // no mask
+	{
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->black.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		
 	}
 }
 

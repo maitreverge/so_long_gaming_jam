@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solong.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrar <iarrar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:49:30 by iarrar            #+#    #+#             */
-/*   Updated: 2023/08/28 14:42:02 by iarrar           ###   ########.fr       */
+/*   Updated: 2024/06/24 16:06:12 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_data
 	t_player	wall;
 	t_player	font;
 	t_player	cookie;
+	t_player	black;
 	char		*str;
 	char		**map;
 	int			count;
