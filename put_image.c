@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 11:58:55 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 12:03:02 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void chooseHardcore(char c, t_data *data, int x, int y)
 	mask_y = data->player.posy - y;
 
 	// modify this data for steps sensitivity
-	int nb_steps = 40;
+	int nb_steps = 30;
 	
 	sensitivity = (rand() % nb_steps - data->count)  + 1;
 	if (sensitivity < 3)
