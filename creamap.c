@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:06:24 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 10:02:31 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 11:14:13 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_freetabtab(char **map)
 
 int inputHardcore(int keysym, t_data *data)
 {
-	int random[4] = {XK_a, XK_s, XK_w, XK_d};
+	int random[4] = {XK_Left, XK_Down, XK_Up, XK_Right};
 
 	for (int i = 0; i < 4; i++) {
         int randomIndex = rand() % 4;
@@ -92,17 +92,23 @@ int inputHardcore(int keysym, t_data *data)
 
 int	handle_input(int keysym, t_data *data)
 {
+	/*
+	#define XK_Left                          0xff51 
+#define XK_Up                            0xff52 
+#define XK_Right                         0xff53 
+#define XK_Down                          0xff54 
+	*/
 	if (g_HARDCORE)
 		inputHardcore(keysym, data);
 	else
 	{
-		if (keysym == XK_a)
+		if (keysym == XK_Left)
 			move_left(data);
-		else if (keysym == XK_s)
+		else if (keysym == XK_Down)
 			move_down(data);
-		else if (keysym == XK_w)
+		else if (keysym == XK_Up)
 			move_up(data);
-		else if (keysym == XK_d)
+		else if (keysym == XK_Right)
 			move_right(data);
 		put_image(data);
 		ft_printf("\033[H\033[J");
