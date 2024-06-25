@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:49:30 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 10:17:21 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 10:20:34 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_data
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_player	player;
+	t_player	player_2; // singe
 	t_player	exit;
 	t_player	exit_close;
 	t_player	exit_open;

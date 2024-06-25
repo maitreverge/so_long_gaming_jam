@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 21:24:31 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 16:30:27 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 10:24:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	ft_init_img(t_data *data)
 
 	data->black.sprite.mlx_img = mlx_xpm_file_to_image
 		(data->mlx_ptr, "./img/black.xpm", &img_height, &img_width);
+
+	data->player_2.sprite.mlx_img = mlx_xpm_file_to_image
+		(data->mlx_ptr, "./img/mouton.xpm", &img_height, &img_width);
 	
 	data->player.sprite.mlx_img = mlx_xpm_file_to_image
 		(data->mlx_ptr, "./img/right_boo.xpm", &img_height, &img_width);

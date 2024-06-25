@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graph_part.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 21:24:31 by iarrar            #+#    #+#             */
-/*   Updated: 2023/09/05 21:24:35 by iarrar           ###   ########.fr       */
+/*   Updated: 2024/06/25 10:23:20 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void	ft_init_img(t_data *data)
 	int	img_width;
 
 	data->player.sprite.mlx_img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./img/loup.xpm", &img_height, &img_width);
+		(data->mlx_ptr, "./img/left_boo.xpm", &img_height, &img_width);
+
+	data->player_2.sprite.mlx_img = mlx_xpm_file_to_image
+		(data->mlx_ptr, "./img/mouton.xpm", &img_height, &img_width);
+		
 	data->wall.sprite.mlx_img = mlx_xpm_file_to_image
 		(data->mlx_ptr, "./img/font.xpm", &img_height, &img_width);
 	data->font.sprite.mlx_img = mlx_xpm_file_to_image

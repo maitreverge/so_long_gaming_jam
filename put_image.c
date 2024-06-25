@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 10:18:03 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 10:26:00 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 void chooseMedium(char c, t_data *data, int x, int y)
 {
 	if (c == 'P')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+	{
+		if (g_BOO)
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		else if (g_SINGE)
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_2.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+	}
 	if (c == '1')
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 				data->wall.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
@@ -53,7 +58,12 @@ void chooseHardcore(char c, t_data *data, int x, int y)
 		sensitivity = 1;
 
 	if (c == 'P')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+	{
+		if (g_BOO)
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+		else if (g_SINGE)
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_2.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
+	}
 	else if ((mask_x >= sensitivity * -1 && mask_x <= sensitivity) && (mask_y >= sensitivity * -1 && mask_y <= sensitivity)) // mask condition
 	{
 		if (c == '1')
@@ -89,49 +99,6 @@ void	ft_choose_img(char c, t_data *data, int x, int y)
 		chooseHardcore(c, data, x, y); // with masks
 	else if (g_MEDIUM)
 		chooseMedium(c, data, x, y); // without masks
-	/*
-	int mask_x, mask_y, sensitivity;
-
-	mask_x = data->player.posx - x;
-	mask_y = data->player.posy - y;
-
-	// modify this data for steps sensitivity
-	int nb_steps = 80;
-	
-	sensitivity = (rand() % nb_steps - data->count)  + 1;
-	if (sensitivity < 3)
-		sensitivity = 1;
-
-	if (c == 'P')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	else if ((mask_x >= sensitivity * -1 && mask_x <= sensitivity) && (mask_y >= sensitivity * -1 && mask_y <= sensitivity)) // mask condition
-	{
-		if (c == '1')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-				data->wall.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-		else if (c == '0')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-				data->font.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-		else if (c == 'C')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-				data->cookie.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-		else if (c == 'E')
-		{
-			if (ft_cookiz(data->map) != 0)
-				mlx_put_image_to_window(data->mlx_ptr,
-					data->win_ptr, data->exit_close.sprite.mlx_img,
-					ft_crdn(x, data), ft_crdn(y, data));
-			else
-				mlx_put_image_to_window(data->mlx_ptr,
-					data->win_ptr, data->exit_open.sprite.mlx_img, ft_crdn(x, data),
-					ft_crdn(y, data));
-		}
-	}
-	else // no mask
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->black.sprite.mlx_img, ft_crdn(x, data), ft_crdn(y, data));
-	}
-	*/
 }
 
 int	check_elements(char **map)
