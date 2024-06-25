@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrar <iarrar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:32 by iarrar            #+#    #+#             */
-/*   Updated: 2023/08/28 15:13:50 by iarrar           ###   ########.fr       */
+/*   Updated: 2024/06/25 09:34:42 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
+bool g_MEDIUM = false;
+bool g_DIFFICULT = false;
+bool g_HARDCORE = false;
 
 int	main(int argc, char **argv)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creamap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:06:24 by iarrar            #+#    #+#             */
-/*   Updated: 2023/08/31 19:06:27 by iarrar           ###   ########.fr       */
+/*   Updated: 2024/06/25 10:02:31 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,24 @@ void	ft_freetabtab(char **map)
 	free(map);
 }
 
-int	handle_input(int keysym, t_data *data)
+int inputHardcore(int keysym, t_data *data)
 {
-	if (keysym == XK_a)
+	int random[4] = {XK_a, XK_s, XK_w, XK_d};
+
+	for (int i = 0; i < 4; i++) {
+        int randomIndex = rand() % 4;
+        char temp = random[i];
+        random[i] = random[randomIndex];
+        random[randomIndex] = temp;
+	}
+	
+	if (keysym == random[0])
 		move_left(data);
-	else if (keysym == XK_s)
+	else if (keysym == random[1])
 		move_down(data);
-	else if (keysym == XK_w)
+	else if (keysym == random[2])
 		move_up(data);
-	else if (keysym == XK_d)
+	else if (keysym == random[3])
 		move_right(data);
 	put_image(data);
 	ft_printf("\033[H\033[J");
@@ -77,6 +86,36 @@ int	handle_input(int keysym, t_data *data)
 			ft_printf("map cleared in %d moves\n", data->count);
 		}
 		ft_ciao(data);
+	}
+	return (0);
+}
+
+int	handle_input(int keysym, t_data *data)
+{
+	if (g_HARDCORE)
+		inputHardcore(keysym, data);
+	else
+	{
+		if (keysym == XK_a)
+			move_left(data);
+		else if (keysym == XK_s)
+			move_down(data);
+		else if (keysym == XK_w)
+			move_up(data);
+		else if (keysym == XK_d)
+			move_right(data);
+		put_image(data);
+		ft_printf("\033[H\033[J");
+		ft_printf("total moves = %d\n", data->count);
+		if (ft_endgame(data) == 1 || keysym == XK_Escape)
+		{
+			if (ft_endgame(data) == 1)
+			{
+				ft_printf("!!! YOU WIN !!!\nCongatulations !\n");
+				ft_printf("map cleared in %d moves\n", data->count);
+			}
+			ft_ciao(data);
+		}
 	}
 	return (0);
 }
@@ -109,3 +148,4 @@ int	get_map(char *str, t_data *data)
 		free(data->str);
 	return (total_len);
 }
+

@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:49:30 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/24 16:06:12 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 09:36:02 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@
 # include "./minilibx-linux/mlx_int.h"
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
+# include "stdbool.h"
 
 # define DIMENSION 50
+
+extern bool g_MEDIUM;
+extern bool g_DIFFICULT;
+extern bool g_HARDCORE;
 
 typedef struct s_imge
 {
