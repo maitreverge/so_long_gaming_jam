@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:32 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 09:34:42 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 10:17:36 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 bool g_MEDIUM = false;
 bool g_DIFFICULT = false;
 bool g_HARDCORE = false;
+bool g_BOO = false;
+bool g_SINGE = false;
 
 int	main(int argc, char **argv)
 {

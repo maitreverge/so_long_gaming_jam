@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:49:30 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 09:36:02 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 10:17:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 extern bool g_MEDIUM;
 extern bool g_DIFFICULT;
 extern bool g_HARDCORE;
+extern bool g_BOO;
+extern bool g_SINGE;
 
 typedef struct s_imge
 {

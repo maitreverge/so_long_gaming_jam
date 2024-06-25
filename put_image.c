@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:31:39 by iarrar            #+#    #+#             */
-/*   Updated: 2024/06/25 09:50:01 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/25 10:18:03 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,9 +170,16 @@ int	ft_ciao(t_data *data)
 	return (0);
 }
 
-bool correctPrompt(char *str)
+bool correctPromptLevel(char *str)
 {
 	if (!strcmp(str, "1") || !strcmp(str, "2") || !strcmp(str, "3"))
+		return true;
+	return false;
+}
+
+bool correctPromptPlayer(char *str)
+{
+	if (!strcmp(str, "1") || !strcmp(str, "2"))
 		return true;
 	return false;
 }
@@ -186,18 +193,18 @@ int	ft_init_all(t_data *data)
 		return (1);
 
 	char prompt[100] = "0";
-	printf("🔥🔥 WELCOME TO LOU's GAMING JAM 🔥🔥\n\n");
+	printf("\n\n🔥🔥 WELCOME TO LOU's GAMING JAM 🔥🔥\n\n");
 
-	// printf("Enter a string: e");
+	// SELECT DIFFICULTY
 	do
 	{
 		printf("PLEASE SELECT A DIFFICULTY LEVEL\n");
-		printf("[1] MEDIUM\n");
-		printf("[2] DIFFICULT\n");
-		printf("[3] HARDCORE\n");
+		printf("[1] 🥰 MEDIUM 🥰\n");
+		printf("[2] 😐 DIFFICULT 😐\n");
+		printf("[3] 😈 HARDCORE 😈\n");
 		scanf("%s", prompt);
 		
-	} while (!correctPrompt(prompt));
+	} while (!correctPromptLevel(prompt));
 
 	switch (prompt[0])
 	{
@@ -209,6 +216,27 @@ int	ft_init_all(t_data *data)
 			break;
 		case '3': // HARDCORE
 			g_HARDCORE = true;
+			break;
+	}
+
+	// SELECT PLAYER
+	char prompt2[100] = "0";
+	do
+	{
+		printf("SELECT A PLAYER\n");
+		printf("[1] 👻 BOO 👻\n");
+		printf("[2] 🐒 SINGE 🐒\n");
+		scanf("%s", prompt2);
+		
+	} while (!correctPromptPlayer(prompt2));
+
+	switch (prompt2[0])
+	{
+		case '1': // MEDIUM
+			g_BOO = true;
+			break;
+		case '2': // DIFFICULT
+			g_SINGE = true;
 			break;
 	}
 	
